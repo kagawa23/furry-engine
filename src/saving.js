@@ -1,6 +1,6 @@
 import { createStore } from "redux";
 
-function saving(state = 0, action) {
+export function saving(state = 0, action) {
   switch (action.type) {
     case "save-money":
       return state + 1 * 100;
@@ -11,23 +11,10 @@ function saving(state = 0, action) {
   }
 }
 
-const store = createStore(
-  saving,
-  //使用chrome redux插件
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
-const init = store.getState();
-console.log(`一开始有${init}元`);
-
-function listener() {
-  const current = store.getState();
-  console.log(`现在有${current}元`);
+export function saveMoney() {
+  return { type: "save-money" };
 }
 
-store.subscribe(listener);
-
-store.dispatch({ type: "save-money" });
-store.dispatch({ type: "save-money" });
-store.dispatch({ type: "save-money" });
-store.dispatch({ type: "withdraw-money" });
+export function widthdrawMoney() {
+  return { type: "withdraw-money" };
+}
