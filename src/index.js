@@ -2,13 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./app";
 import { saving } from "./saving";
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
+import thunk from "redux-thunk";
 
 const store = createStore(
   saving,
-  //使用chrome redux插件
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose(
+    applyMiddleware(thunk),
+    //使用chrome redux插件
+    window.__REDUX_DEVTOOLS_EXTENSION__
+      ? window.__REDUX_DEVTOOLS_EXTENSION__()
+      : f => f
+  )
 );
 
 ReactDOM.render(
