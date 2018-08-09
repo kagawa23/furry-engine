@@ -11,6 +11,7 @@ export function createStore(reducer){
     function dispatch(action){
         currentState = reducer(currentState,action);
         listeners.forEach(v=>v())
+        return action;
     }
     dispatch({type:'my-redux@init'});
     return { getState, subscribe, dispatch};
