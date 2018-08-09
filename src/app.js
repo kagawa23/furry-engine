@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
+import { connect } from "./my-react-redux";
+
 import { saveMoney, widthdrawMoney, p2pWidthdraw } from "./saving";
 
 const mapPropsToState = saving => ({

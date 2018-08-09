@@ -3,7 +3,9 @@ import ReactDOM from "react-dom";
 import App from "./app";
 import { saving } from "./saving";
 import { createStore, applyMiddleware, compose } from "redux";
-import { Provider } from "react-redux";
+// import { Provider } from "react-redux";
+import { Provider } from "./my-react-redux";
+
 import thunk from "redux-thunk";
 
 const store = createStore(
