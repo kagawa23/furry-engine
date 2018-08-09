@@ -1,4 +1,5 @@
-import { createStore } from "redux";
+// import { createStore } from "redux";
+import { createStore } from "./my-redux";
 
 function saving(state = 0, action) {
   switch (action.type) {
